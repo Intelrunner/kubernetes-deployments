@@ -21,6 +21,20 @@ spec:
         ports:
         - containerPort: 80
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shack-nginx-service
+spec:
+  selector:
+    app: shack-deployment-nginx
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
