@@ -34,27 +34,26 @@ spec:
     port: 80
     targetPort: 8080
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shack-deployment-redis
+  name: shack-deployment-ubuntu
   labels:
-    app: redis
+    app: ubuntu
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: redis
+      app: ubuntu
   template:
     metadata:
       labels:
-        app: redis
+        app: ubuntu
         home: the-shack
     spec:
       containers:
-      - name: redis
-        image: redis:latest
+      - name: ubuntu
+        image: ubuntu:latest
         ports:
         - containerPort: 80
 
